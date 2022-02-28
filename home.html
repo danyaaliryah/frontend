@@ -7,10 +7,14 @@
     <title>Document</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
+    <link id="mystylesheet" rel="stylesheet" type="text/css" href="dark.css">
+  <link id="mystylesheet" rel="stylesheet" type="text/css" href="light.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <style>
@@ -21,7 +25,7 @@
        font-size: 40px;
        color:rgb(165, 55, 55);
      }
-*{
+*,button{
  
     font-family:Tajawal;
 }
@@ -389,8 +393,50 @@ a{
   margin-bottom: 20px;
   font-size: 15px;
 }
+body {
+ 
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
     </style>
 
+
+<script>
+
+var setTheme = localStorage.getItem('theme')
+		console.log('theme:', setTheme)
+
+		if (setTheme == null){
+			swapStyle('light.css')
+      
+		}else{
+			swapStyle(setTheme)
+		}
+
+		function swapStyle(sheet){
+			document.getElementById('mystylesheet').href = sheet
+			localStorage.setItem('theme', sheet)
+		}
+
+
+		/*
+		var setTheme = localStorage.getItem('theme')
+		if (setTheme == null){
+			swapStyles('light.css')
+		}else{
+			swapStyles(setTheme)
+		}
+			
+		
+		function swapStyles(sheet){
+			document.getElementById('mystylesheet').href = sheet
+			localStorage.setItem('theme', sheet)
+		}
+		*/
+</script>
 
 <nav  class="navbar navbar-expand-sm navbar-dark shadow " style="background-color: #57517A; padding-right: 30px;padding-left: 30px;">
     <a class="navbar-brand" href="#">
@@ -407,6 +453,9 @@ a{
     aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
+    
+          
+       
     <div class="collapse navbar-collapse" id="toggleMobileMenu">
     <ul class ="navbar-nav ms-auto text-right">
     <li>
@@ -421,14 +470,24 @@ a{
      <li>
        <a class="nav-link" href="#portfoilo">معرض الاعمال</a>
     </li>
+    
     <li >
       <a style="height: 35px;margin-top: 10px;" class="btn btn-light " href="login.html">تسجيل الدخول</a>
    </li>
    
     </ul>
     
-    </div>
+    </div><div class="row " >
+      
     
+    <a  onclick="swapStyle('dark.css')" style="color: rgb(36, 41, 46);font-size: 20px;"class="
+      fa fa-moon-o "></a>
+     
+    <a onclick="swapStyle('light.css')" style="color: ;font-size: 20px;"class="
+      fa fa-sun-o "></a>
+
+ 
+      </div> </div>
     </nav>
 
 
@@ -496,6 +555,7 @@ a{
               <a href="#" class="fa fa-twitter"></a>
               <a href="#" class="fa fa-instagram"></a>
               <a href="#" class="fa fa-linkedin"></a>
+             
       </div>
     </div>
   </div>
