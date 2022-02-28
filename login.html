@@ -10,8 +10,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link id="mystylesheet" rel="stylesheet" type="text/css" href="dark.css">
+  <link id="mystylesheet" rel="stylesheet" type="text/css" href="light.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+
+<script>
+
+    var setTheme = localStorage.getItem('theme')
+            console.log('theme:', setTheme)
+    
+            if (setTheme == null){
+                swapStyle('light.css')
+          
+            }else{
+                swapStyle(setTheme)
+            }
+    
+            function swapStyle(sheet){
+                document.getElementById('mystylesheet').href = sheet
+                localStorage.setItem('theme', sheet)
+            }
+    
+    
+            /*
+            var setTheme = localStorage.getItem('theme')
+            if (setTheme == null){
+                swapStyles('light.css')
+            }else{
+                swapStyles(setTheme)
+            }
+                
+            
+            function swapStyles(sheet){
+                document.getElementById('mystylesheet').href = sheet
+                localStorage.setItem('theme', sheet)
+            }
+            */
+    </script>
 <body>
     <style>
      body{
@@ -347,7 +385,18 @@ a{
    </li>
    
     </ul>
+</div>
+    <div class="row " >
+      
     
+        <a  onclick="swapStyle('dark.css')" style="color: rgb(36, 41, 46);font-size: 20px;"class="
+          fa fa-moon-o "></a>
+         
+        <a onclick="swapStyle('light.css')" style="color: ;font-size: 20px;"class="
+          fa fa-sun-o "></a>
+    
+     
+          </div>
     </div>
     
 
